@@ -200,7 +200,7 @@ cursor: pointer;
   }
   #slide-element{
     width: 78%;
-    animation: slide 1s ease-in-out;
+    animation: slide 1.1s ease-in-out;
   }
 
   @keyframes slide {
