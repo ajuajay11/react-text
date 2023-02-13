@@ -21,6 +21,12 @@ resultSegment.forEach((result)=>{
   //   ]};
 
 schema.push(`${result.value} : ${result.options[result.selectedIndex].text}`);
+setTimeout(() => {
+  window.alert("submitted successfully")
+  result.value = "";
+ segmentName.value="";
+}, 700);
+
 });
 console.log(schema);
 
@@ -74,11 +80,14 @@ addOption.addEventListener("click", (e) => {
   if (!selectedValue) {
     return;
   }
-  
+
   const innerDiv = document.createElement('div');
   const newSelect = document.createElement("select");
   const innerBtn = document.createElement('button');
-  innerBtn.innerHTML= "-";
+  innerBtn.classList.add("button-line")
+  // innerBtn.innerHTML= "-";
+  innerBtn.innerHTML = "<i id='icons' class='fa fa-arrows-h' aria-hidden='true'></i>";
+
   innerBtn.classList.add('delete');
 
   innerDiv.appendChild(newSelect);
@@ -123,10 +132,36 @@ deleteButton.parentElement.remove();
 
 
 //popup 
-
+var hero =document.querySelector(".hero");
 const button = document.querySelector('#slide-button');
 const element = document.querySelector('#slide-element');
 
 button.addEventListener('click', function() {
-  element.classList.toggle('show-element');
+  if(element.className != "show-element"){
+    element.classList.remove('hide-element');
+    element.classList.add('show-element');
+    hero.classList.add("layer");
+    // element.classList.add('show-element');
+  }
+  // if(element.className == "hide-element"){
+    
+  // }
 });
+
+
+//cancel button
+
+const cancel = document.querySelector("#cancel");
+
+cancel.addEventListener('click', ()=>{
+  setTimeout(() => {
+    element.classList.remove('show-element');
+    segmentName.value="";
+    newDiv.innerHTML="";
+    hero.classList.remove("layer");
+  }, 1000);
+
+  element.classList.add('hide-element');
+  
+
+})

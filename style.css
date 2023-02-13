@@ -30,20 +30,93 @@ box-sizing: border-box;
     flex-direction: column;
     align-items:center ;
 }
+.section-one h1{
+  font-size: 60px;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+.section-one .slide-button{
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  animation: borderOne 3s infinite;
+}
+@keyframes borderOne {
+  0%{
+    border: 1px solid #ce3405;
+  }
+  20%{
+    border:  1px solid #05ce5f;
+  }
+  40%{
+    border: 1px solid #05c1ce;
+  }
+  60%{
+    border:  1px solid #3105ce;
+  }
+  80%{
+    border:  1px solid #ce05c4;
+  }
+  100%{
+    border:  1px solid #ce0516;
+  }
+}
+
+.title h1{
+  padding-top: 20px;
+  font-size: 20px !important;
+  font-family: sans-serif;
+}
+.title p{
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  padding: 10px 0px;
+  font-weight: 500;
+  font-size: 14px;
+}
+.title input{
+  width: 93%;
+  padding: 20px 10px;
+}
+
+#slide-element select{
+  width: 80%;
+  padding: 10px 10px;
+  border: 2px solid rgb(55 169 182);
+  margin-bottom: 30px;
+}
+#slide-element select:nth-child(){
+  border: 2px solid rgb(66, 182, 55);
+}
+.button-line{
+background: #33333349;
+color: #fff;
+border: 0px;
+padding: 12px 15px;
+box-shadow: 2px 2px 2px #0000007c;
+margin-left: 10px;
+cursor: pointer;
+}
+
 
 #slide-element {
     display: none;
    position: fixed;
     transition: all 1s ease-out;
     top: 0;
-    height: 100vh;
+    height: 95vh;
     right: 0;
+    border-top: 70px solid rgb(55 169 182);;
     top: 0px;
-    z-index: 999    ;
-    width: 40%;
+    z-index: 999;
+    width: 23%;
+    padding: 0px 40px;
     background-color: #fff;
     animation: slide 1s ease-in-out;
   }
+
   @keyframes slide {
     0%{
         right: -250px;
@@ -51,14 +124,105 @@ box-sizing: border-box;
     }
     100%{
         right: 0;
-        width: 40%;
+        width: 23%;
         opacity: 1;
     }
   }
   
   .show-element {
     display: block !important;
-    
-    
   }
+  .hide-element{
+    animation: hide 1s ease-in-out !important;
+  }
+  @keyframes hide {
+    0%{
+        right: 0;
+        width: 23%;
+        opacity: 1;
+       
+    }
+    100%{
+        right: -250px;
+        opacity: 0;
+    }
+  }
+
+
+
+.layer::before{
+  content: '';
+  position: fixed;
+  background: #0000003d;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+
+#addOption{
+  background-color:transparent;
+  border: none;
+  text-decoration: underline;
+  color: #01881e;
+  font-weight: bold;
+  cursor: pointer;
+ 
+}
+#cancel{
+  background: #ce3405;
+  border: none;
+  color: #fff;
+  padding: 10px 12px;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+#save_segment{
+  background: #01881e;
+  border: none;
+  color: #fff;
+  padding: 10px 12px;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+.save-the-segment-line
+{
   
+    position: fixed;
+    bottom: 10px;
+}
+
+
+@media screen and (min-device-width: 300px) and (max-device-width: 480px) {
+  .section-one h1{
+    font-size: 34px;
+  }
+  #slide-element{
+    width: 78%;
+    animation: slide 1s ease-in-out;
+  }
+
+  @keyframes slide {
+    0%{
+        right: -250px;
+        opacity: 0;
+    }
+    100%{
+        right: 0;
+        width: 78%;
+        opacity: 1;
+    }
+  }
+  @keyframes hide {
+    0%{
+        right: 0;
+        width: 78%;
+        opacity: 1;
+       
+    }
+    100%{
+        right: -250px;
+        opacity: 0;
+    }
+}
